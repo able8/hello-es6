@@ -18,6 +18,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [3.变量 let 和 常量 const](#3%E5%8F%98%E9%87%8F-let-%E5%92%8C-%E5%B8%B8%E9%87%8F-const)
     - [4.函数-箭头函数](#4%E5%87%BD%E6%95%B0-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
     - [5.函数-参数](#5%E5%87%BD%E6%95%B0-%E5%8F%82%E6%95%B0)
+    - [6.解构赋值](#6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC)
 
 ----
 
@@ -173,3 +174,21 @@ function show2(a, b=5, c=8) {
 }
 show2(88, 12)
 ```
+
+## 6.解构赋值
+
+```js
+let [a, b, c] = [1, 2, 3]
+console.log(a, b, c)
+
+let {x, y, z} = {x: 1, y: 2, z: 3}
+console.log(x, y, z)
+
+let [json, arr, num, str] = [{ a: 1, b: 2 }, [1, 2, 3], 8, 'str']
+console.log(json, arr, num, str)
+```
+
+- 解构赋值
+    - 左右两个边结构必须一样
+    - 右边必须是个东西
+    - 声明和赋值赋值不能分开，必须在一句话里
