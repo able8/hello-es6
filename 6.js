@@ -6,3 +6,4 @@ console.log(x, y, z)
 
 let [json, arr, num, str] = [{ a: 1, b: 2 }, [1, 2, 3], 8, 'str']
 console.log(json, arr, num, str)
+

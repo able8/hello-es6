@@ -19,6 +19,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [4.函数-箭头函数](#4%E5%87%BD%E6%95%B0-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
     - [5.函数-参数](#5%E5%87%BD%E6%95%B0-%E5%8F%82%E6%95%B0)
     - [6.解构赋值](#6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC)
+    - [7.数组](#7%E6%95%B0%E7%BB%84)
 
 ----
 
@@ -192,3 +193,76 @@ console.log(json, arr, num, str)
     - 左右两个边结构必须一样
     - 右边必须是个东西
     - 声明和赋值赋值不能分开，必须在一句话里
+
+## 7.数组
+
+- 新增4个方法
+- map 映射  一个对一个
+
+```js
+let arr = [12, 5, 8]
+let result = arr.map(function (item) {
+    return item*2
+})
+let result2 = arr.map(item=>item*2) // 简写
+console.log(result)
+console.log(result2)
+
+let score = [18, 86, 88, 24]
+let result3 = score.map(item => item >= 60 ? '及格' : '不及格')
+console.log(result3)
+
+// 结果
+[ 24, 10, 16 ]
+[ 24, 10, 16 ]
+[ '不及格', '及格', '及格', '不及格' ]
+```
+
+- reduce 汇总  一堆出来一个
+    - 用于比如，算个总数，算个平均
+
+```js
+var arr = [1, 3, 5, 7]
+var result = arr.reduce(function (tmp, item, index) {
+    //tmp 上次结果，item当前数，index次数1开始
+    console.log(tmp, item, index)
+    return tmp + item
+})
+console.log(result)
+
+var arr = [1, 3, 5, 7]
+var result = arr.reduce(function (tmp, item, index) {
+    if (index != arr.length - 1) { // 不是最后一次
+        return tmp + item
+    } else {
+        return (tmp + item)/arr.length
+    }
+})
+console.log(result)  // 平均值
+```
+
+- filter 过滤器 保留为true的
+
+
+```js
+var arr = [12, 4, 8, 9]
+var result = arr.filter(item => (item % 3 === 0) ? true : false)
+console.log(result)
+var result = arr.filter(item => item % 3 === 0)
+console.log(result)
+
+var arr = [
+    { title: '苹果', price: 10 },
+    { title: '西瓜', price: 20 },
+]
+var result = arr.filter(json => json.price >= 20)
+console.log(result)
+```
+
+- forEach 循环迭代
+
+```js
+var arr = [12, 4, 8, 9]
+var result = arr.forEach(item => console.log(item))
+var result = arr.forEach((item, index)=>console.log(item, index))
+```
