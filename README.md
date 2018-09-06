@@ -24,6 +24,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [9.面向对象-基础](#9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80)
     - [10.面向对象应用](#10%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BA%94%E7%94%A8)
     - [11.json](#11json)
+    - [12.Promise](#12promise)
 
 ----
 
@@ -447,3 +448,70 @@ console.log({ a, b, show(){ console.log('a') }})
 { a: 12, b: 5, show: [Function: show] }
 ```
 
+## 12.Promise
+
+- 异步和同步
+    - 异步，操作之间没有关系，同时执行多个操作， 代码复杂
+    - 同步，同时只能做一件事，代码简单
+
+- Promise 对象
+    - 用同步一样的方式，来书写异步代码
+    - Promise 可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数
+    - 不仅改善了可读性，而且对于多层嵌套的回调函数尤其方便
+    - 是 JavaScript 的异步操作解决方案，为异步操作提供统一接口
+    - 充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口
+
+- Promise 也是一个构造函数
+    - 接受一个回调函数f1作为参数，f1里面是异步操作的代码
+    - 返回的p1就是一个 Promise 实例
+    - 所有异步任务都返回一个 Promise 实例
+    - Promise 实例有一个then方法，用来指定下一步的回调函数
+
+```js
+function f1(resolve, reject) {
+  // 异步代码...
+}
+var p1 = new Promise(f1);
+p1.then(f2); // f1的异步操作执行完成，就会执行f2。
+```
+
+- Promise 使得异步流程可以写成同步流程
+
+```js
+// 传统写法
+step1(function (value1) {
+  step2(value1, function(value2) {
+    step3(value2, function(value3) {
+      step4(value3, function(value4) {
+        // ...
+      });
+    });
+  });
+});
+
+// Promise 的写法
+(new Promise(step1))
+  .then(step2)
+  .then(step3)
+  .then(step4);
+```
+
+- Promise.all(promiseArray)方法
+    - 将多个Promise对象实例包装，生成并返回一个新的Promise实例
+    - promise数组中所有的promise实例都变为resolve的时候，该方法才会返回
+    - 并将所有结果传递results数组中
+    - promise数组中任何一个promise为reject的话，则整个Promise.all调用会立即终止，并返回一个reject的新的promise对象
+
+```js
+var p1 = Promise.resolve(1),
+    p2 = Promise.resolve(2),
+    p3 = Promise.resolve(3);
+Promise.all([p1, p2, p3]).then(function (results) {
+    console.log(results);  // [1, 2, 3]
+});
+```
+
+- Promise.race([p1, p2, p3])
+    - Promse.race就是赛跑的意思
+    - 哪个结果获得的快，就返回那个结果
+    - 不管结果本身是成功状态还是失败状态。
