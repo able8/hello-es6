@@ -13,3 +13,4 @@ let genObj = show2()
 genObj.next()
 genObj.next()
 genObj.next() // 最后了，没有结果
+

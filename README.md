@@ -26,6 +26,9 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [11.json](#11json)
     - [12.Promise](#12promise)
     - [13.generator-认识生成器函数](#13generator-%E8%AE%A4%E8%AF%86%E7%94%9F%E6%88%90%E5%99%A8%E5%87%BD%E6%95%B0)
+    - [14.generator-yield是啥](#14generator-yield%E6%98%AF%E5%95%A5)
+    - [15.generator-实例](#15generator-%E5%AE%9E%E4%BE%8B)
+    - [16.ES7 预览](#16es7-%E9%A2%84%E8%A7%88)
 
 ----
 
@@ -584,4 +587,88 @@ console.log(res1) // { value: 10, done: false }
 var res2 = gen.next()
 console.log(res2)
 // { value: undefined, done: true } 最后的value需要return返回
+```
+
+## 15.generator-实例
+
+- Promise 适合一次读一组
+- generator 适合逻辑性的
+
+```js
+// 带逻辑-generator
+runner(function * () {
+    let userData = yield $.ajax({url: 'getUserData'})
+
+    if (userData.type == 'VIP') {
+        let items = yield $.ajax({url: 'getVIPItems'})
+    } else {
+        let items = yield $.ajax({url: 'getItems'})
+    }
+})
+```
+
+```js
+// yield 实例，用同步方式完成异步方式
+server.use(function * () {
+    let data = yield db.query(`select * from user_table`)
+    this.body = data
+})
+```
+
+## 16.ES7 预览
+
+- 数组
+    - `arr.includes()` 数组是否包含某个东西
+    - 数组的 arr.keys(), arr,entries()
+    - for ... in 遍历数组 下标 key
+    - for ... of 遍历数组 值 value, 不能用于json
+
+```js
+let arr = ['a', 'b', 'c']
+console.log(arr.includes(1))
+
+for (let i in arr) {
+    console.log(i) // 循环的时下标 key
+}
+
+for (let i of arr) {
+    console.log(i) // 循环的是值 value
+}
+for (let i of arr.keys()) {
+    console.log('>'+i)
+}
+for (let [key, value] of arr.entries()) {
+    console.log('>' + key + value)
+}
+
+let json = { a: 12, b: 5, c: 7 }
+for (let i in json) {
+    console.log(i)
+}
+```
+
+- 字符串
+    - padStart()/padEnd() 指定宽度，不够就补空格或指定字符
+
+```js
+console.log('=' + 'abcd'.padStart(6, '0') + '=')
+console.log('=' + 'abcd'.padEnd(6, '0') + '=')
+=00abcd=
+=abcd00=
+```
+
+- 容忍度
+    - [1, 2, 3,] 老版数组最后不能有逗号，新的可以有
+    - 函数参数最后多的逗号也可以
+
+- async await
+    - 和 generator yield 类似
+    - generator 不可以写成箭头函数， async 可以
+
+```js
+async function show() {
+    console.log(1)
+    await
+    console.log(2)
+}
 ```
