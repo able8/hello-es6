@@ -20,6 +20,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [5.函数-参数](#5%E5%87%BD%E6%95%B0-%E5%8F%82%E6%95%B0)
     - [6.解构赋值](#6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC)
     - [7.数组](#7%E6%95%B0%E7%BB%84)
+    - [8.字符串](#8%E5%AD%97%E7%AC%A6%E4%B8%B2)
 
 ----
 
@@ -265,4 +266,38 @@ console.log(result)
 var arr = [12, 4, 8, 9]
 var result = arr.forEach(item => console.log(item))
 var result = arr.forEach((item, index)=>console.log(item, index))
+```
+
+## 8.字符串
+
+- 多了两个新方法
+    - `startsWith`
+    - `endsWith`
+
+```js
+var url = 'http://qq.com'
+console.log(url.startsWith('http'))
+console.log(url.endsWith('com'))
+// 都是 true
+```
+
+- 字符串模版
+    - 使用反引号，`${变量}`
+    - 可以折行
+
+```js
+let a = 12
+let str1 = `asdf${a}`
+console.log(str1)
+
+let title = '标题'
+let content = '内容'
+let str = `<div>
+<h1>${title}</h1>
+<p>${content}</p>
+`
+console.log(str)
+<div>
+<h1>标题</h1>
+<p>内容</p>
 ```
