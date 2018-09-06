@@ -2,16 +2,14 @@
 
 ES6 各种新语法 入门了解  石川blue讲解
 
-
 视频地址
 
-- [b站 深入解读ES6系列(全18讲)
-](https://www.bilibili.com/video/av20327829/)
-
+- [b站：深入解读ES6系列](https://www.bilibili.com/video/av20327829/)
 
 看视频整理要点笔记:
 
 ----
+
 - [hello-es6](#hello-es6)
     - [1.ES6怎么来的](#1es6%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84)
     - [2.ES6兼容性](#2es6%E5%85%BC%E5%AE%B9%E6%80%A7)
@@ -136,7 +134,6 @@ function name() {
 }
 ```
 
-
 ```js
 let show1 = function () {
     console.log('abc')
@@ -252,7 +249,6 @@ console.log(result)  // 平均值
 
 - filter 过滤器 保留为true的
 
-
 ```js
 var arr = [12, 4, 8, 9]
 var result = arr.filter(item => (item % 3 === 0) ? true : false)
@@ -315,7 +311,6 @@ console.log(str)
 - 原来写法
     - 类和构造函数一样
     - 属性和方法分开写的
-
 
 ```js
 // 老版本
@@ -459,10 +454,9 @@ console.log({ a, b, show(){ console.log('a') }})
     - 同步，同时只能做一件事，代码简单
 
 - Promise 对象
-    - 用同步一样的方式，来书写异步代码
-    - Promise 可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数
-    - 不仅改善了可读性，而且对于多层嵌套的回调函数尤其方便
-    - 是 JavaScript 的异步操作解决方案，为异步操作提供统一接口
+    - 用同步的方式来书写异步代码
+    - Promise 让异步操作写起来，像在写同步操作的流程，不必一层层地嵌套回调函数
+    - 改善了可读性，对于多层嵌套的回调函数很方便
     - 充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口
 
 - Promise 也是一个构造函数
@@ -559,7 +553,6 @@ genObj.next() // 最后了，没有结果
     - 如果有`yield`会报错， `ReferenceError: yield is not defined`
     - yield 只能在Generator函数内部使用
 
-
 ```js
 function * show() {
     console.log('1')
@@ -608,7 +601,7 @@ runner(function * () {
 ```
 
 ```js
-// yield 实例，用同步方式完成异步方式
+// yield 实例，用同步方式写异步
 server.use(function * () {
     let data = yield db.query(`select * from user_table`)
     this.body = data
