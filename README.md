@@ -17,6 +17,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [2.ES6兼容性](#2es6%E5%85%BC%E5%AE%B9%E6%80%A7)
     - [3.变量 let 和 常量 const](#3%E5%8F%98%E9%87%8F-let-%E5%92%8C-%E5%B8%B8%E9%87%8F-const)
     - [4.函数-箭头函数](#4%E5%87%BD%E6%95%B0-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
+    - [5.函数-参数](#5%E5%87%BD%E6%95%B0-%E5%8F%82%E6%95%B0)
 
 ----
 
@@ -147,3 +148,28 @@ console.log(show4(10))
 console.log(show5(10))
 ```
 
+## 5.函数-参数
+
+- 参数扩展／展开 `...args`
+    - 收集剩余的参数，必须当到最后一个参数位置
+    - 展开数组，简写，效果和直接把数组的内容写在这儿一样
+- 默认参数
+
+```js
+function show(a, b, ...args) {
+    console.log(a)
+    console.log(b)
+    console.log(args)
+}
+console.log(show(1, 2, 3, 4, 5))
+
+let arr1 = [1, 2, 3]
+let arr2 = [4, 5, 6]
+let arr3 = [...arr1, ...arr2]
+console.log(arr3)
+
+function show2(a, b=5, c=8) {
+    console.log(a, b, c)
+}
+show2(88, 12)
+```
