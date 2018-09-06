@@ -25,6 +25,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [10.面向对象应用](#10%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BA%94%E7%94%A8)
     - [11.json](#11json)
     - [12.Promise](#12promise)
+    - [13.generator-认识生成器函数](#13generator-%E8%AE%A4%E8%AF%86%E7%94%9F%E6%88%90%E5%99%A8%E5%87%BD%E6%95%B0)
 
 ----
 
@@ -514,4 +515,16 @@ Promise.all([p1, p2, p3]).then(function (results) {
 - Promise.race([p1, p2, p3])
     - Promse.race就是赛跑的意思
     - 哪个结果获得的快，就返回那个结果
-    - 不管结果本身是成功状态还是失败状态。
+    - 不管结果本身是成功状态还是失败状态
+
+## 13.generator-认识生成器函数
+
+- generator 生成器
+    - 是 函数
+    - 普通函数，一路到底
+    - generator函数，中间可以停，到哪停呢，用 yield 配合，交出执行权
+    - yield 有 放弃、退让、退位的意思
+    - 需要调用next()方法启动执行，需要遇到 yield 停, 踹一脚走一步
+    - generator函数前面加一个 `*` 两边可以有空格，或靠近函数或`function`
+
+
