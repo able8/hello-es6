@@ -22,6 +22,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [7.数组](#7%E6%95%B0%E7%BB%84)
     - [8.字符串](#8%E5%AD%97%E7%AC%A6%E4%B8%B2)
     - [9.面向对象-基础](#9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80)
+    - [10.面向对象应用](#10%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BA%94%E7%94%A8)
 
 ----
 
@@ -382,4 +383,11 @@ class VipUser extends User {
 v1 = new VipUser('blue', '123', 3)
 v1.showLevel()
 ```
+
+## 10.面向对象应用
+
+- [React](https://www.reactjscn.com)
+    - 用于构建用户界面的 JavaScript 库
+    - 组件化，一个组件就是一个 class
+    - JSX == bable == browser.js
 
