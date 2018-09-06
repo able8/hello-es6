@@ -29,3 +29,15 @@ ES6 各种新语法 入门了解  石川blue讲解
     - 2011, ES5.1 成为 ISO 国际标准
     - 2015, ES6.0 正式发布
 
+## 2.ES6兼容性
+
+- ES6(ES2015) 支持的环境 IE10+, Chrome, FireFox, 移动端, NodeJS
+- 解决不兼容办法，编译、转换
+    - 在线转换
+    - 或者提前编译
+
+- [Babel 中文网](https://www.babeljs.cn)
+    - [Babel 入门教程 阮一峰](http://www.ruanyifeng.com/blog/2016/01/babel.html)
+    - Babel 是一个 JavaScript 编译器
+    - 一个广泛使用的转码器，可以将ES6代码转为ES5代码，从而在现有环境执行
+    - 现在就用 ES6 编写程序，而不用担心现有环境是否支持
