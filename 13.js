@@ -9,5 +9,7 @@ function *show2() {
     yield
     console.log('2')
 }
-show2()
-len genObj = show2()
+let genObj = show2()
+genObj.next()
+genObj.next()
+genObj.next() // 最后了，没有结果
