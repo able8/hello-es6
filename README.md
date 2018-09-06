@@ -21,6 +21,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [6.解构赋值](#6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC)
     - [7.数组](#7%E6%95%B0%E7%BB%84)
     - [8.字符串](#8%E5%AD%97%E7%AC%A6%E4%B8%B2)
+    - [9.面向对象-基础](#9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%9F%BA%E7%A1%80)
 
 ----
 
@@ -301,3 +302,84 @@ console.log(str)
 <h1>标题</h1>
 <p>内容</p>
 ```
+
+## 9.面向对象-基础
+
+- 原来写法
+    - 类和构造函数一样
+    - 属性和方法分开写的
+
+
+```js
+// 老版本
+function User(name, pass) {
+    this.name = name
+    this.pass = pass
+}
+
+User.prototype.showName = function () {
+    console.log(this.name)
+}
+User.prototype.showPass = function () {
+    console.log(this.pass)
+}
+
+var u1 = new User('able', '1233')
+u1.showName()
+u1.showPass()
+// 老版本继承
+function VipUser(name, pass, level) {
+    User.call(this, name, pass)
+    this.level = level
+}
+VipUser.prototype = new User()
+VipUser.prototype.constructor = VipUser
+VipUser.prototype.showLevel = function () {
+    console.log(this.level)
+}
+
+var v1 = new VipUser('blue', '1234', 3)
+v1.showName()
+v1.showLevel()
+
+```
+
+- 新版面向对象
+    - 有了 class 关键字、构造器
+    - class 里面直接加方法
+    - 继承，super 超类==父类
+
+```js
+class User {
+    constructor(name, pass) {
+        this.name = name
+        this.pass = pass
+    }
+
+    showName() {
+        console.log(this.name)
+    }
+    showPass() {
+        console.log(this.pass)
+    }
+}
+
+var u1 = new User('able2', '111')
+u1.showName()
+u1.showPass()
+
+// 新版本继承
+class VipUser extends User {
+    constructor(name, pass, level) {
+        super(name, pass)
+        this.level = level
+    }
+    showLevel(){
+        console.log(this.level)
+    }
+}
+
+v1 = new VipUser('blue', '123', 3)
+v1.showLevel()
+```
+
