@@ -16,6 +16,7 @@ ES6 各种新语法 入门了解  石川blue讲解
     - [1.ES6怎么来的](#1es6%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84)
     - [2.ES6兼容性](#2es6%E5%85%BC%E5%AE%B9%E6%80%A7)
     - [3.变量 let 和 常量 const](#3%E5%8F%98%E9%87%8F-let-%E5%92%8C-%E5%B8%B8%E9%87%8F-const)
+    - [4.函数-箭头函数](#4%E5%87%BD%E6%95%B0-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
 
 ----
 
@@ -105,3 +106,44 @@ ES6 各种新语法 入门了解  石川blue讲解
 </body>
 </html>
 ```
+
+## 4.函数-箭头函数
+
+- 箭头函数，就是函数的简写
+    - 如果只有一个参数，`()` 可以省
+    - 如果只有一个`return`，`{}`可以省
+
+```js
+// 普通函数
+function name() {
+
+}
+// 箭头函数，去掉 function， 加上 =>
+() => {
+
+}
+```
+
+
+```js
+let show1 = function () {
+    console.log('abc')
+}
+
+let show2 = () => {
+    console.log('abc')
+}
+
+show1() // 调用函数
+show2()
+
+let show4 = function (a) {
+    return a*2
+}
+
+let show5 = a => a * 2  //简洁，类似python lambda 函数
+
+console.log(show4(10))
+console.log(show5(10))
+```
+
